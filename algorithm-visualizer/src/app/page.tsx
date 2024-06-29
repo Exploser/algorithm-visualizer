@@ -6,9 +6,19 @@ import { useSortingAlgorithmContext } from "@/context/Visualizer";
 import { SortingAlgorithmType } from "@/lib/types";
 import { sortingAlgorithms } from "@/lib/utils";
 import { useEffect } from "react";
+import { FaPlayCircle } from "react-icons/fa";
+import { RxReset } from "react-icons/rx";
 
 export default function Home() {
-  const {arrayToSort, isSorting, animationSpeed, setAnimationSpeed, selectedAlgorithm, setSelectedAlgorithm} = useSortingAlgorithmContext();
+  const {
+    arrayToSort,
+    isSorting,
+    animationSpeed,
+    setAnimationSpeed,
+    selectedAlgorithm,
+    setSelectedAlgorithm,
+    requireReset,
+  } = useSortingAlgorithmContext();
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedAlgorithm(e.target.value as SortingAlgorithmType);
@@ -32,7 +42,7 @@ export default function Home() {
             <h1 className="text-gray-300 text-4xl font-semibold hidden md:flex">
               Sorting Visulizer
             </h1>
-            <div className="flex items-center text-2xl font-semibold justify-center gap-4">
+            <div className="flex items-center justify-center gap-4">
               Controls
               <Slider
                 isDisabled={isSorting}
@@ -45,8 +55,17 @@ export default function Home() {
                 onChange={handleSelectChange}
                 isDisabled={isSorting}
               />
+              <button
+                className="flex items-center justify-center"
+                onClick={() => {}}
+              >
+                {requireReset ? (
+                  <RxReset className="text-gray-400 h-8 w-8" />
+                ) : (
+                  <FaPlayCircle className="text-system-green60 h-8 w-8" />
+                )}
+              </button>
             </div>
-
             <div className="hidden sm:flex absolute top-[120%] left-0 w-full">
               <div className="flex w-full text-gray-400 p-4 rounded border border-system-purple20 bg-system-purple80 bg-opacity-10 gap-6">
                 <div className="flex flex-col items-start justify-start w-3/4">
