@@ -1,14 +1,16 @@
 'use client'
 
+import { Slider } from "@/components/Input/Slider";
 import { useSortingAlgorithmContext } from "@/context/Visualizer";
 import { useEffect } from "react";
 
 export default function Home() {
-  const {arrayToSort, isSorting} = useSortingAlgorithmContext();
+  const {arrayToSort, isSorting, animationSpeed, setAnimationSpeed} = useSortingAlgorithmContext();
 
   useEffect(() => {
     console.log(arrayToSort);
     console.log(isSorting);
+    console.log(animationSpeed);
   });
 
   return (
@@ -24,6 +26,11 @@ export default function Home() {
             </h1>
             <div className="flex items-center text-2xl font-semibold justify-center gap-4">
               Controls
+              <Slider
+                isDisabled={isSorting}
+                value={animationSpeed}
+                handleChange={(e) => setAnimationSpeed(parseInt(e.target.value))}
+              />
             </div>
 
             <div className="hidden sm:flex absolute top-[120%] left-0 w-full">
