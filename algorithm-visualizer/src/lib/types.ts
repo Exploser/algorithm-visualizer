@@ -8,3 +8,8 @@ export type SortingAlgorithmType =
     | "shell"
     | "radix"
     | "counting";
+
+export type SelectOptionType = {
+    value: string;
+    label: string;
+};

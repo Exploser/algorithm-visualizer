@@ -26,7 +26,7 @@ export const Slider = ({
         step={step}
         value={value}
         onChange={(e) => handleChange(e)}
-        className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-700"
+        className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-700"
       />
       <span className="text-center text-gray-300">Fast</span>
     </div>
