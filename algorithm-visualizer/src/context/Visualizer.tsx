@@ -39,24 +39,37 @@ export const SortingAlgorithmProvider = ({ children }: { children: React.ReactNo
 
     const requireReset = isAnimationComplete || isSorting;
 
-
     const resetArrayAndAnimation = () => {
         const contentContainer = document.getElementById("content-container");
         if (!contentContainer) return;
-
         const contentContainerWidth = contentContainer.clientWidth;
+
         const tempArray: number[] = [];
         const numLines = contentContainerWidth / 8;
         const containerHeight = window.innerHeight;
         const maxLineHeight = Math.max(containerHeight - 420, 100);
         for (let i = 0; i < numLines; i++) {
-            tempArray.push(generateRandomNumberFromInterval(5, maxLineHeight));
+          tempArray.push(generateRandomNumberFromInterval(35, maxLineHeight));
         }
 
         setArrayToSort(tempArray);
-        setIsAnimationComplete(false);
         setIsSorting(false);
-     }
+        setIsAnimationComplete(false);
+
+        const highestId = window.setTimeout(() => {
+          for (let i = highestId; i >= 0; i--) {
+            window.clearInterval(i);
+          }
+        }, 0);
+
+        setTimeout(() => {
+          const arrLines = document.getElementsByClassName("array-line");
+          for (let i = 0; i < arrLines.length; i++) {
+            arrLines[i].classList.remove("change-line-color");
+            arrLines[i].classList.add("default-line-color");
+          }
+        }, 0);
+      };
 
      const runAnimation = (animations: AnimationArrayType) => {
         setIsSorting(true);
