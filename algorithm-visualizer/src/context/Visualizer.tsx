@@ -1,3 +1,4 @@
+'use client'
 import { SortingAlgorithmType } from "@/lib/types";
 import { MAX_ANIMATION_SPEED } from "@/lib/utils";
 import { useContext } from "react";
@@ -20,7 +21,7 @@ interface SortingAlgorithmContextType {
 
 const SortingAlgorithmContext = createContext<SortingAlgorithmContextType | undefined>( undefined );
 
-export const SortingAlgorithmProvider = ({ Children }: { Children: React.ReactNode }) => {
+export const SortingAlgorithmProvider = ({ children }: { children: React.ReactNode }) => {
     const [arrayToSort, setArrayToSort] = useState<number[]>([]);
     const [selectedAlgorithm, setSelectedAlgorithm] = useState<SortingAlgorithmType>("bubble");
     const [isSorting, setIsSorting] = useState<boolean>(false);
@@ -50,7 +51,7 @@ export const SortingAlgorithmProvider = ({ Children }: { Children: React.ReactNo
 
     return (
         <SortingAlgorithmContext.Provider value={value}>
-            {Children}
+            {children}
         </SortingAlgorithmContext.Provider>
     )
 }
