@@ -1,8 +1,7 @@
 'use client'
 import { AnimationArrayType, SortingAlgorithmType } from "@/lib/types";
 import { MAX_ANIMATION_SPEED, generateRandomNumberFromInterval } from "@/lib/utils";
-import { useContext, useEffect } from "react";
-import { createContext, useState } from "react";
+import { useContext, useEffect, createContext, useState } from "react";
 
 interface SortingAlgorithmContextType {
     arrayToSort: number[];
@@ -20,7 +19,7 @@ interface SortingAlgorithmContextType {
     requireReset: boolean;
 }
 
-const SortingAlgorithmContext = createContext<SortingAlgorithmContextType | undefined>( undefined );
+const SortingAlgorithmContext = createContext<SortingAlgorithmContextType | undefined>(undefined);
 
 export const SortingAlgorithmProvider = ({ children }: { children: React.ReactNode }) => {
     const [arrayToSort, setArrayToSort] = useState<number[]>([]);
@@ -45,7 +44,7 @@ export const SortingAlgorithmProvider = ({ children }: { children: React.ReactNo
         const contentContainerWidth = contentContainer.clientWidth;
 
         const tempArray: number[] = [];
-        const numLines = contentContainerWidth / 8;
+        const numLines = Math.floor(contentContainerWidth / 8);
         const containerHeight = window.innerHeight;
         const maxLineHeight = Math.max(containerHeight - 420, 100);
         for (let i = 0; i < numLines; i++) {
@@ -85,8 +84,10 @@ export const SortingAlgorithmProvider = ({ children }: { children: React.ReactNo
           removeClassName: string
         ) => {
           indexes.forEach((index) => {
-            arrLines[index].classList.add(addClassName);
-            arrLines[index].classList.remove(removeClassName);
+            if (arrLines[index]) {
+              arrLines[index].classList.add(addClassName);
+              arrLines[index].classList.remove(removeClassName);
+            }
           });
         };
 
@@ -94,7 +95,9 @@ export const SortingAlgorithmProvider = ({ children }: { children: React.ReactNo
           lineIndex: number,
           newHeight: number | undefined
         ) => {
-          arrLines[lineIndex].style.height = `${newHeight}px`;
+          if (arrLines[lineIndex]) {
+            arrLines[lineIndex].style.height = `${newHeight}px`;
+          }
         };
 
         animations.forEach((animation, index) => {

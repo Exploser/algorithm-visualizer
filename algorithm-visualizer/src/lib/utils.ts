@@ -133,4 +133,36 @@ export const sortingAlgorithmsData = {
       averageCase: "O(n log n)",
       bestCase: "O(n log n)",
     },
+    heap: {
+      title: "Heap Sort",
+      description:
+        "Heap sort works by first building a max heap from the array, then repeatedly extracting the maximum element from the heap and rebuilding the heap until all elements are sorted. This algorithm uses the heap data structure to efficiently find and remove the largest element.",
+      worstCase: "O(n log n)",
+      averageCase: "O(n log n)",
+      bestCase: "O(n log n)",
+    },
+    shell: {
+      title: "Shell Sort",
+      description:
+        "Shell sort is a generalization of insertion sort that allows the exchange of items that are far apart. The algorithm sorts elements at a specific gap and gradually reduces the gap until it becomes 1, where it effectively turns into an insertion sort.",
+      worstCase: "O(n²)",
+      averageCase: "O(n log n)",
+      bestCase: "O(n log n)",
+    },
+    radix: {
+      title: "Radix Sort",
+      description:
+        "Radix sort processes integer keys by grouping them based on the individual digits which share the same significant position and value. This process is repeated for each digit, from least significant to most significant, until the array is sorted.",
+      worstCase: "O(nk)",
+      averageCase: "O(nk)",
+      bestCase: "O(nk)",
+    },
+    counting: {
+      title: "Counting Sort",
+      description:
+        "Counting sort is an integer sorting algorithm that operates by counting the number of objects that have each distinct key value. It then uses arithmetic to determine the positions of each key in the output sequence, effectively sorting the array.",
+      worstCase: "O(n + k)",
+      averageCase: "O(n + k)",
+      bestCase: "O(n + k)",
+    },
   };
