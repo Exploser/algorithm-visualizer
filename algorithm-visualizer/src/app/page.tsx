@@ -4,7 +4,7 @@ import { Select } from "@/components/Input/Select";
 import { Slider } from "@/components/Input/Slider";
 import { useSortingAlgorithmContext } from "@/context/Visualizer";
 import { SortingAlgorithmType } from "@/lib/types";
-import { generateAnimationArray, sortingAlgorithms } from "@/lib/utils";
+import { generateAnimationArray, sortingAlgorithms, sortingAlgorithmsData } from "@/lib/utils";
 import { useEffect } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import { RxReset } from "react-icons/rx";
@@ -79,32 +79,31 @@ export default function Home() {
               <div className="flex w-full text-gray-400 p-4 rounded border border-system-purple20 bg-system-purple80 bg-opacity-10 gap-6">
                 <div className="flex flex-col items-start justify-start w-3/4">
                   <h3 className="text-lg">
-                    Algorithm Name
+                    {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).title}
                   </h3>
                   <p className="text-sm text-grey-500 pt-2">
-                    Algorithm Description
+                  {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).description}
                   </p>
                 </div>
-
                 <div className="flex flex-col items-start justify-start w-1/4 gap-2">
                   <h3 className="text-lg">Time Complexity</h3>
                   <div className="flex flex-col gap-2">
                     <p className="flex w-full text-sm text-gray-500">
                       <span className="w-28">Worst Case:</span>
                       <span>
-                        Worst Case Time Complexity
+                        {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).worstCase}
                       </span>
                     </p>
                     <p className="flex w-full text-sm text-gray-500">
                       <span className="w-28">Average Case:</span>
                       <span>
-                        Average Case Time Complexity
+                        {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).averageCase}
                       </span>
                     </p>
                     <p className="flex w-full text-sm text-gray-500">
                       <span className="w-28">Best Case:</span>
                       <span>
-                        Best Case Time Complexity
+                        {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).bestCase}
                       </span>
                     </p>
                   </div>
