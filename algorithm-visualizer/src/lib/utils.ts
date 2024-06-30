@@ -4,6 +4,10 @@ import { generateSelectionSortAnimationArray } from "@/algorithms/selectionSort"
 import { generateInsertionSortAnimationArray } from "@/algorithms/insertionSort";
 import { generateQuickSortAnimationArray } from "@/algorithms/quickSort";
 import { generateMergeSortAnimationArray } from "@/algorithms/mergeSort";
+import { generateHeapSortAnimation } from "@/algorithms/heapSort";
+import { generateShellSortAnimation } from "@/algorithms/shellSort";
+import { generateRadixSortAnimation } from "@/algorithms/radixSort";
+import { generateCountingSortAnimation } from "@/algorithms/countingSort";
 
 export const MIN_ANIMATION_SPEED = 100;
 export const MAX_ANIMATION_SPEED = 400;
@@ -74,6 +78,16 @@ export function generateAnimationArray(
             generateMergeSortAnimationArray(isSorting, array, runAnimation);
             break;
         case "heap":
+            generateHeapSortAnimation(isSorting, array, runAnimation);
+            break;
+        case "shell":
+            generateShellSortAnimation(isSorting, array, runAnimation);
+            break;
+        case "radix":
+            generateRadixSortAnimation(isSorting, array, runAnimation);
+            break;
+        case "counting":
+            generateCountingSortAnimation(isSorting, array, runAnimation);
             break;
     }
 }
