@@ -41,8 +41,9 @@ export default function Home() {
   };
 
   return (
-    <main className="absolute top-0 h-screen w-screen z-[-2] px-4 py-8 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+    <main className="absolute top-0 h-screen w-screen z-[-2] px-4 py-8 bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
       <div className="flex h-full justify-center">
+
         <div
           id="content-container"
           className="flex max-w-[1020px] w-full flex-col lg:px-0 px-4"
@@ -116,7 +117,7 @@ export default function Home() {
               {arrayToSort.map((value, index) => (
                 <div
                   key={index}
-                  className="array-line relative w-1 mx-0.5 shadow-lg opacity-70 rounded-lg default-line-color"
+                  className="array-line relative w-1 mx-0.5 shadow-lg opacity-80 rounded-lg default-line-color"
                   style={{ height: `${value}px` }}
                 ></div>
               ))}
