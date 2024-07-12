@@ -43,7 +43,6 @@ export default function Home() {
   return (
     <main className="absolute top-0 h-screen w-screen z-[-2] px-4 py-8 bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
       <div className="flex h-full justify-center">
-
         <div
           id="content-container"
           className="flex max-w-[1020px] w-full flex-col lg:px-0 px-4"
@@ -52,8 +51,8 @@ export default function Home() {
             <h1 className="text-gray-300 text-4xl font-semibold">
               Sorting Visualizer
             </h1>
-            <div className="flex flex-row items-center justify-center gap-4 mt-4 sm:mt-0 h-full">
-              <span className="text-gray-300 sm:hidden block font-semibold">Controls</span>
+            <div className="flex flex-row items-center justify-center gap-4 h-full">
+              <span className="text-gray-300 font-semibold sm:hidden xs:block sm:block">Controls</span>
               <Slider
                 isDisabled={isSorting}
                 value={animationSpeed}
