@@ -48,12 +48,12 @@ export default function Home() {
           id="content-container"
           className="flex max-w-[1020px] w-full flex-col lg:px-0 px-4"
         >
-          <div className="h-[66px] relative flex items-center justify-between w-full">
-            <h1 className="text-gray-300 text-4xl font-semibold hidden md:flex">
+          <div className="h-[66px] relative flex flex-col sm:flex-row items-center justify-between w-full">
+            <h1 className="text-gray-300 text-4xl font-semibold">
               Sorting Visualizer
             </h1>
-            <div className="flex items-center justify-center gap-4">
-              Controls
+            <div className="flex flex-row items-center justify-center gap-4 mt-4 sm:mt-0 h-full">
+              <span className="text-gray-300 sm:hidden block font-semibold">Controls</span>
               <Slider
                 isDisabled={isSorting}
                 value={animationSpeed}
@@ -76,17 +76,17 @@ export default function Home() {
                 )}
               </button>
             </div>
-            <div className="hidden sm:flex absolute top-[120%] left-0 w-full">
-              <div className="flex w-full text-gray-400 p-4 rounded border border-system-purple20 bg-system-purple80 bg-opacity-10 gap-6">
-                <div className="flex flex-col items-start justify-start w-3/4">
+            <div className="hidden sm:flex absolute top-[150%] sm:top-[120%] left-0 w-full">
+              <div className="flex flex-col sm:flex-row w-full text-gray-400 p-4 rounded border border-system-purple20 bg-system-purple80 bg-opacity-10 gap-6">
+                <div className="flex flex-col items-start justify-start w-full sm:w-3/4">
                   <h3 className="text-lg">
                     {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).title}
                   </h3>
                   <p className="text-sm text-grey-500 pt-2">
-                  {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).description}
+                    {(sortingAlgorithmsData[selectedAlgorithm as keyof typeof sortingAlgorithmsData] || {}).description}
                   </p>
                 </div>
-                <div className="flex flex-col items-start justify-start w-1/4 gap-2">
+                <div className="flex flex-col items-start justify-start w-full sm:w-1/4 gap-2">
                   <h3 className="text-lg">Time Complexity</h3>
                   <div className="flex flex-col gap-2">
                     <p className="flex w-full text-sm text-gray-500">
